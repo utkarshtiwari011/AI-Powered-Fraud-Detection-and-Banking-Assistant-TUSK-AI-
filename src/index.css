@@ -1,0 +1,250 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 98%;
+    --foreground: 210 33% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 33% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 33% 12%;
+
+    --primary: 195 50% 41%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 200 18% 37%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 210 15% 90%;
+    --muted-foreground: 215 16% 46%;
+
+    --accent: 198 32% 55%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 74% 57%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 195 50% 41%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 215 70% 15%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 195 50% 41%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 215 30% 22%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 215 30% 22%;
+    --sidebar-ring: 195 50% 41%;
+  }
+
+  .dark {
+    --background: 216 33% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 30% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 30% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 195 86% 40%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 215 30% 22%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 30% 18%;
+    --muted-foreground: 210 20% 60%;
+
+    --accent: 215 30% 25%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 30% 18%;
+    --input: 215 30% 18%;
+    --ring: 195 86% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    @apply bg-gradient-to-br from-tusk-darkNavy via-tusk-navy to-tusk-blue;
+  }
+  
+  .gradient-accent {
+    @apply bg-gradient-to-r from-tusk-teal to-tusk-accent;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-tusk-teal to-tusk-accent;
+  }
+  
+  .floating-card {
+    @apply shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out backdrop-blur-md;
+  }
+  
+  .tech-border {
+    @apply border border-tusk-teal/30 rounded-xl overflow-hidden relative;
+  }
+  
+  .tech-border::after {
+    content: '';
+    @apply absolute inset-0 border border-tusk-teal/60 rounded-xl opacity-0 transition-opacity duration-300;
+  }
+  
+  .tech-border:hover::after {
+    @apply opacity-100;
+  }
+  
+  .glow-effect {
+    @apply relative overflow-hidden;
+  }
+  
+  .glow-effect::before {
+    content: '';
+    @apply absolute -inset-1 bg-gradient-to-r from-tusk-teal to-tusk-accent blur opacity-30 transition duration-1000;
+  }
+  
+  .glow-effect:hover::before {
+    @apply opacity-70;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-float-advanced {
+    animation: floatAdvanced 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatAdvanced {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px theme(colors.tusk.teal), 0 0 10px theme(colors.tusk.teal), 0 0 15px theme(colors.tusk.teal);
+  }
+  50% {
+    box-shadow: 0 0 10px theme(colors.tusk.teal), 0 0 20px theme(colors.tusk.teal), 0 0 30px theme(colors.tusk.teal);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Futuristic scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme(colors.tusk.darkNavy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme(colors.tusk.teal);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme(colors.tusk.accent);
+}
+
+/* Glassmorphism effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Neon glow effects */
+.neon-glow {
+  text-shadow: 0 0 5px theme(colors.tusk.teal), 0 0 10px theme(colors.tusk.teal), 0 0 15px theme(colors.tusk.teal);
+}
+
+/* Matrix-like animation */
+@keyframes matrix {
+  0% { transform: translateY(-100px); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.matrix-effect {
+  animation: matrix 3s linear infinite;
+}
