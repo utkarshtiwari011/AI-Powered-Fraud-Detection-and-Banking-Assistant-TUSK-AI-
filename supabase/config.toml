@@ -1,0 +1,28 @@
+project_id = "frjtusbuhxrwksksxgil"
+
+[functions.ai-fraud-detection]
+verify_jwt = false
+
+[functions.ai-banking-assistant]
+verify_jwt = false
+
+[functions.real-time-analytics]
+verify_jwt = false
+
+[functions.realtime-trading]
+verify_jwt = false
+
+[functions.ensemble-fraud-detection]
+verify_jwt = false
+
+[functions.ai-investment-advisor]
+verify_jwt = false
+
+[functions.behavioral-biometrics]
+verify_jwt = false
+
+[functions.document-ai-processor]
+verify_jwt = false
+
+[functions.predictive-analytics]
+verify_jwt = false
